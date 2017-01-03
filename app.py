@@ -1,13 +1,20 @@
 from selenium import webdriver
 
-browser = webdriver.Chrome()
+# BROWSER
+
 # browser = webdriver.Firefox()
 
 # URL
 url = 'http://vnexpress.net/tin-tuc/thoi-su/cong-ngan-trieu-bung-nap-o-sai-gon-co-dau-hieu-bi-cay-pha-3522886.html'
-browser.get(url)
+element_id='//*[@id="19822386"][2]'  # Get second element of same id group
+like_count=3
 
-# Get second element of same id group
-element = browser.find_element_by_xpath('//*[@id="19822386"][2]')
-element.click()
+# ACTION
+
+for _ in range(like_count):
+    driver = webdriver.Chrome()
+    driver.get(url)
+    element = driver.find_element_by_xpath(element_id)
+    element.click()
+    driver.quit()
 
