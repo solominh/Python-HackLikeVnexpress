@@ -1,9 +1,9 @@
 
 from selenium import webdriver
-
+import time
 # URL
-url = 'http://vnexpress.net/tin-tuc/thoi-su/cong-ngan-trieu-bung-nap-o-sai-gon-co-dau-hieu-bi-cay-pha-3522886.html'
-element_id = '19822386'  # Get second element of same id group
+url = 'http://vnexpress.net/tin-tuc/thoi-su/giao-thong/nan-nhan-tren-cao-toc-long-thanh-nhieu-nguoi-bi-hat-tung-3523359.html'
+element_id = '19832024'  # Get second element of same id group
 like_count = 3
 
 # ACTION
@@ -11,6 +11,9 @@ like_count = 3
 for _ in range(like_count):
     driver = webdriver.Chrome()
     driver.get(url)
-    element = driver. element = driver.find_elements_by_id(element_id)[1]
+    element = driver.find_elements_by_id(element_id)[1]
+    driver.execute_script("return arguments[0].scrollIntoView();", element)
+    time.sleep(2)
     element.click()
+    time.sleep(2)
     driver.quit()
