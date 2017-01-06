@@ -12,7 +12,11 @@ for _ in range(like_count):
     driver = webdriver.Chrome()
     driver.get(url)
     element = driver.find_elements_by_id(element_id)[1]
+
+    # Scroll to element
     driver.execute_script("return arguments[0].scrollIntoView();", element)
+    driver.execute_script("window.scrollBy(0, -150);")
+
     time.sleep(2)
     element.click()
     time.sleep(2)
